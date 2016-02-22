@@ -11,7 +11,7 @@ defmodule Facebook.Mixfile do
       description: description,
       package: package,
       deps: deps,
-      source_url: "https://github.com/mweibel/facebook.ex"
+      source_url: "https://github.com/TalMeser/facebook.ex"
     ]
   end
 
@@ -39,7 +39,7 @@ defmodule Facebook.Mixfile do
     [
       licenses: ["MIT"],
       links: %{
-        "GitHub" => "https://github.com/mweibel/facebook.ex"
+        "GitHub" => "https://github.com/TalMeser/facebook.ex"
       },
       maintainers: [
         "mweibel",
