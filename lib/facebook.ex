@@ -82,6 +82,31 @@ defmodule Facebook do
     Facebook.Graph.get("/me", fields ++ [access_token: access_token], options)
   end
 
+
+  @doc """
+  Likes of the currently logged in user (specified by the access_token)
+
+  See: https://developers.facebook.com/docs/graph-api/reference/user/likes
+  """
+  @spec myFriends(access_token) :: response
+  def myFriends(access_token) do
+    myFriends(access_token, [])
+  end
+
+  @doc """
+  Likes of the currently logged in user (specified by the access_token)
+
+  See: https://developers.facebook.com/docs/graph-api/reference/user/likes
+  """
+  @spec myFriends(access_token, options) :: response
+  def myFriends(access_token, options) do
+    fields = [access_token: access_token]
+    if !is_nil(Config.appsecret) do
+      fields = fields ++ [appsecret_proof: encrypt(access_token)]
+    end
+    Facebook.Graph.get("/me/friends", fields, options)
+  end
+
   @doc """
   Likes of the currently logged in user (specified by the access_token)
 
